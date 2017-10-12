@@ -1,7 +1,6 @@
 package eu.sig.training.ch04;
 
-// tag::SavingsAccount[]
-public class SavingsAccount extends Account {
+public class SavingsAccount extends Accounts {
     private static final float INTEREST_PERCENTAGE = 0.04f;
     private CheckingAccount registeredCounterAccount;
 
@@ -9,8 +8,7 @@ public class SavingsAccount extends Account {
     public Transfer makeTransfer(String counterAccount, Money amount)
         throws BusinessException {
         // 1. Assuming result is 9-digit bank account number, validate 11-test:
-        int sum = Utils.validateAccount(counterAccount);
-        if (sum % 11 == 0) {
+        if (isValid(counterAccount)) {
             // 2. Look up counter account and make transfer object:
             CheckingAccount acct = Accounts.findAcctByNumber(counterAccount);
             Transfer result = new Transfer(this, acct, amount); // <2>
@@ -30,4 +28,3 @@ public class SavingsAccount extends Account {
         super.addInterest(INTEREST_PERCENTAGE);
     }
 }
-// end::SavingsAccount[]
