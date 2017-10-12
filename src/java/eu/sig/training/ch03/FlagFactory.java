@@ -26,11 +26,10 @@ public class FlagFactory {
         flags.put(BULGARIAN, Arrays.asList(Color.WHITE, Color.GREEN, Color.RED));
         flags.put(RUSSIA, Arrays.asList(Color.WHITE, Color.BLUE, Color.RED));
     }
-    // tag::getFlag[]
+
     public List<Color> getFlagColors(Nationality nationality) {
         List<Color> result = flags.get(nationality);
         return result != null ? result : Arrays.asList(Color.GRAY);
     }
-    // end::getFlag[]
 
 }
