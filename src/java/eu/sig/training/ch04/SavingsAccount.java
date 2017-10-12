@@ -4,6 +4,10 @@ public class SavingsAccount extends Accounts {
     private static final float INTEREST_PERCENTAGE = 0.04f;
     private CheckingAccount registeredCounterAccount;
 
+    public SavingsAccount(CheckingAccount registeredCheckingAccount) {
+        this.registeredCounterAccount = registeredCheckingAccount;
+    }
+
     @Override
     public Transfer makeTransfer(String counterAccount, Money amount)
         throws BusinessException {
